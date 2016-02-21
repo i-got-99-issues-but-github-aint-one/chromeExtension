@@ -3,6 +3,7 @@
 //$("body").append('Test');
 
 var hidden = [];
+var likes = 0;
 
 if ( $(".js-discussion .timeline-comment-wrapper").length ) {
     $(".js-discussion .js-comment-container").each(function() {
@@ -10,9 +11,11 @@ if ( $(".js-discussion .timeline-comment-wrapper").length ) {
     		//$(this).css({"border-color": "#FF0000", "border-style":"solid"});
     		hidden.push($(this));
     		$(this).hide();
+                likes++;
     	}
     })
-} 
+}
+alert("Ths issue has " + likes + " likes"); 
 
 chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
 	console.log(msg, sender, sendResponse);
